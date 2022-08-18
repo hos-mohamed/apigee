@@ -1,0 +1,492 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Notifications API Proxy",
+    "description": "This API Proxy will manage all notifciations, their sub resources and all related operations",
+    "version": "1"
+  },
+  "host": "host.com",
+  "basePath": "/communications/sms/v1",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "Bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header",
+      "description": "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer 12345abcdef\""
+    }
+  },
+  "tags": [
+    {
+      "name": "Notification Management",
+      "description": "Notification Management Endpoints"
+    },
+    {
+      "name": "Monetoring Resources",
+      "description": "Monetoring endpoints for proxy operation"
+    }
+  ],
+  "paths": {
+    "/inquiries": {
+      "post": {
+        "tags": [
+          "Notification Management"
+        ],
+        "summary": "Creates a new main event",
+        "operationId": "postInquiry",
+        "description": "Creates a new main event that holds different events",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/internalServerErrorResponse"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/internalServerErrorResponse"
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "schema": {
+              "$ref": "#/definitions/badRequestResponse"
+            },
+            "description": "Bad Request"
+          },
+          "401": {
+            "schema": {
+              "$ref": "#/definitions/unauthorizedResponse"
+            },
+            "description": "Unauthorized"
+          },
+          "404": {
+            "schema": {
+              "$ref": "#/definitions/notFoundResponse"
+            },
+            "description": "Not Found"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/internalServerErrorResponse"
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/notifications": {
+      "post": {
+        "tags": [
+          "Notification Management"
+        ],
+        "summary": "Creates a new main event",
+        "operationId": "postNotification",
+        "description": "Creates a new main event that holds different events",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/internalServerErrorResponse"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/internalServerErrorResponse"
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "schema": {
+              "$ref": "#/definitions/badRequestResponse"
+            },
+            "description": "Bad Request"
+          },
+          "401": {
+            "schema": {
+              "$ref": "#/definitions/unauthorizedResponse"
+            },
+            "description": "Unauthorized"
+          },
+          "404": {
+            "schema": {
+              "$ref": "#/definitions/notFoundResponse"
+            },
+            "description": "Not Found"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/internalServerErrorResponse"
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/senders": {
+      "get": {
+        "tags": [
+          "Notification Management"
+        ],
+        "summary": "Lists down all main events",
+        "operationId": "getAllSenders",
+        "description": "Lists down all main events",
+        "parameters": [
+          {
+            "name": "offset",
+            "type": "integer",
+            "description": "Pagination parameter describes the starting point",
+            "in": "query"
+          },
+          {
+            "name": "limit",
+            "type": "integer",
+            "description": "Pagination parameter describes the size of the output",
+            "in": "query"
+          },
+          {
+            "name": "type",
+            "type": "integer",
+            "description": "Filter response depending on the main event type",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "headers": {
+              "count": {
+                "type": "number",
+                "description": "Return total number of items"
+              },
+              "has-more": {
+                "type": "boolean",
+                "description": "Indicates if there are more entries"
+              }
+            },
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/internalServerErrorResponse"
+              }
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "schema": {
+              "$ref": "#/definitions/badRequestResponse"
+            },
+            "description": "Bad Request"
+          },
+          "401": {
+            "schema": {
+              "$ref": "#/definitions/unauthorizedResponse"
+            },
+            "description": "Unauthorized"
+          },
+          "404": {
+            "schema": {
+              "$ref": "#/definitions/notFoundResponse"
+            },
+            "description": "Not Found"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/internalServerErrorResponse"
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Notification Management"
+        ],
+        "summary": "Creates a new main event",
+        "operationId": "postSender",
+        "description": "Creates a new main event that holds different events",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/internalServerErrorResponse"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/internalServerErrorResponse"
+            },
+            "description": "Successful Response"
+          },
+          "400": {
+            "schema": {
+              "$ref": "#/definitions/badRequestResponse"
+            },
+            "description": "Bad Request"
+          },
+          "401": {
+            "schema": {
+              "$ref": "#/definitions/unauthorizedResponse"
+            },
+            "description": "Unauthorized"
+          },
+          "404": {
+            "schema": {
+              "$ref": "#/definitions/notFoundResponse"
+            },
+            "description": "Not Found"
+          },
+          "500": {
+            "schema": {
+              "$ref": "#/definitions/internalServerErrorResponse"
+            },
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/ping": {
+      "get": {
+        "tags": [
+          "Monetoring Resources"
+        ],
+        "summary": "Lists down all main events",
+        "operationId": "getPing",
+        "description": "an endpoint to show the health of an API proxy",
+        "responses": {
+          "200": {
+            "description": "response that shows the health of the API proxy",
+            "schema": {
+              "$ref": "#/definitions/pingSchema"
+            }
+          }
+        }
+      }
+    },
+    "/status": {
+      "get": {
+        "tags": [
+          "Monetoring Resources"
+        ],
+        "summary": "Moni",
+        "operationId": "getStatus",
+        "description": "an endpoint to show the readiness of an API proxy",
+        "responses": {
+          "200": {
+            "description": "response that shows the readiness of the API proxy",
+            "schema": {
+              "$ref": "#/definitions/statusSchema"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "pingSchema": {
+      "description": "Response to show to the health of the API proxy",
+      "type": "object",
+      "properties": {
+        "environment": {
+          "type": "string",
+          "example":"prod",
+          "description": "The API environment where the API is deployed"
+        },
+        "api": {
+          "type": "string",
+          "example":"communications-sms-v1",
+          "description": "The API proxy name"
+        },
+        "client": {
+          "type": "string",
+          "example":"10.10.10.1",
+          "description": "The client IP address"
+        },
+        "latency": {
+          "type": "number",
+          "example":20,
+          "description":"The API proxy latency"
+        },
+        "message": {
+          "type": "string",
+          "example":"pong",
+          "description": "Static message i.e. “pong”"
+        }
+      }
+    },
+    "statusSchema": {
+      "description": "Response to show to the readiness of the API proxy",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "api":{
+            "type":"string",
+            "description": "The API proxy name",
+            "example":"communcations-sms-v1"
+          },
+          "component":{
+            "type":"string",
+            "description": "The API component name",
+            "example":"communcations"
+          },
+          "latency":{
+            "type":"object",
+            "description":"The API proxy latency",
+            "properties":{
+              "total":{
+                "type": "number",
+                "description":"The total API proxy latency",
+                "example":"20"
+              },
+              "target":{
+                "type":"number",
+                "description":"The proxy target latency",
+                "example":"10"
+              }
+            }
+          },
+          "status":{
+            "type":"string",
+            "example":"success",
+            "description": "The API proxy status"
+          },
+          "message":{
+            "type":"string",
+            "example":"success",
+            "description": "Static message i.e. “success”"
+          }
+        }
+      }
+    },
+    "badRequestResponse": {
+      "description": "Error handling for bad request",
+      "title": "Bad Request",
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "a description for the error occured",
+              "example": "Bad Request"
+            },
+            "code": {
+              "type": "string",
+              "example": "400.000.000"
+            },
+            "traceId": {
+              "type": "string",
+              "example": "5213dsad12da3410"
+            },
+            "reference": {
+              "type": "string",
+              "example": "https://developer.tawakkalna.com/events-management/errors/400000000"
+            }
+          }
+        }
+      }
+    },
+    "unauthorizedResponse": {
+      "description": "Error handling for unauthorized request",
+      "title": "Unauthorized",
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "a description for the error occured",
+              "example": "Unauthorized"
+            },
+            "code": {
+              "type": "string",
+              "example": "401.000.000"
+            },
+            "traceId": {
+              "type": "string",
+              "example": "5213dsad12da3410"
+            },
+            "reference": {
+              "type": "string",
+              "example": "https://developer.tawakkalna.com/events-management/errors/401000000"
+            }
+          }
+        }
+      }
+    },
+    "notFoundResponse": {
+      "description": "Error handling for not found request",
+      "title": "Not Found",
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "a description for the error occured",
+              "example": "Not Found"
+            },
+            "code": {
+              "type": "string",
+              "example": "404.000.000"
+            },
+            "traceId": {
+              "type": "string",
+              "example": "5213dsad12da3410"
+            },
+            "reference": {
+              "type": "string",
+              "example": "https://developer.tawakkalna.com/events-management/errors/404000000"
+            }
+          }
+        }
+      }
+    },
+    "internalServerErrorResponse": {
+      "description": "Error handling for internal server error request",
+      "title": "Internal Server Error",
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string",
+              "description": "a description for the error occured",
+              "example": "Internal Server Error"
+            },
+            "code": {
+              "type": "string",
+              "example": "500.000.000"
+            },
+            "traceId": {
+              "type": "string",
+              "example": "5213dsad12da3410"
+            },
+            "reference": {
+              "type": "string",
+              "example": "https://developer.tawakkalna.com/events-management/errors/500000000"
+            }
+          }
+        }
+      }
+    }
+  }
+}
