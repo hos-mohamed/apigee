@@ -1,842 +1,635 @@
-{
-  "openapi": "3.0.0",
-  "info": {
-    "title": "RCJY - SIDF APIs",
-    "description": "TBD This is a description placeholder.\n",
-    "version": "0.5.0"
-  },
-  "servers": [
-    {
-      "url": "https://yesser.rcjubail.gov.sa/lafapi/api/laf",
-      "description": "The SIDF API base/production URL"
-    }
-  ],
-  "paths": {
-    "/createrequest": {
-      "post": {
-        "summary": "TBD",
-        "description": "TBD",
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateRequestRequestBody"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "A successfull request with the required response data.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreateRequestResponseBody"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request, mainly this issue happens when the data sent to the API is not valid."
-          },
-          "401": {
-            "description": "Unauthorized, mainly this issue happens when the authorization token is invalid."
-          }
-        }
-      }
-    },
-    "/CreateQuestEnvCriteriaRequest": {
-      "post": {
-        "summary": "TBD",
-        "description": "TBD",
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateQuestEnvCriteriaRequestRequestBody"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "A successfull request with the required response data.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreateQuestEnvCriteriaRequestResponseBody"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request, mainly this issue happens when the data sent to the API is not valid."
-          },
-          "401": {
-            "description": "Unauthorized, mainly this issue happens when the authorization token is invalid."
-          }
-        }
-      }
-    },
-    "/CreateQuestEnvWasteRequest": {
-      "post": {
-        "summary": "TBD",
-        "description": "TBD",
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateQuestEnvWasteRequestRequestBody"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "A successfull request with the required response data.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CreateQuestEnvWasteRequestResponseBody"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request, mainly this issue happens when the data sent to the API is not valid."
-          },
-          "401": {
-            "description": "Unauthorized, mainly this issue happens when the authorization token is invalid."
-          }
-        }
-      }
-    },
-    "/SubmitRequest": {
-      "post": {
-        "summary": "TBD",
-        "description": "TBD",
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/SubmitRequestRequestBody"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "A successfull request with the required response data.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SubmitRequestResponseBody"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request, mainly this issue happens when the data sent to the API is not valid."
-          },
-          "401": {
-            "description": "Unauthorized, mainly this issue happens when the authorization token is invalid."
-          }
-        }
-      }
-    }
-  },
-  "components": {
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
-      }
-    },
-    "schemas": {
-      "CreateRequestRequestBody": {
-        "type": "object",
-        "properties": {
-          "Email": {
-            "type": "string",
-            "description": "The invester email address.",
-            "example": "xyz@rcjy.gov.sa"
-          },
-          "InvesterName": {
-            "type": "string",
-            "description": "The investor full name.",
-            "example": "Ahmed Mohamed Ibrahim"
-          },
-          "Position": {
-            "type": "string",
-            "description": "The invester position",
-            "example": "IT Manager"
-          },
-          "InvesterTelephone": {
-            "type": "string",
-            "description": "The invester telephone number.",
-            "example": "0512312312"
-          },
-          "Ext": {
-            "type": "string",
-            "description": "The invester telephone extention number",
-            "example": "101"
-          },
-          "Mobile": {
-            "type": "string",
-            "description": "The invester mobile number without country code, without '+'.",
-            "example": 51111111
-          },
-          "InvesterEmail": {
-            "type": "string",
-            "description": "The invester email address.",
-            "example": "xyz@abc.com"
-          },
-          "Location": {
-            "type": "string",
-            "description": "The invester location",
-            "example": "Rihyadh"
-          },
-          "empNumber": {
-            "type": "string",
-            "description": "The employee number.",
-            "example": "1001"
-          },
-          "ProjectClassification": {
-            "type": "string",
-            "description": "The project classification.",
-            "example": "Classification"
-          },
-          "TotalAreaRequired": {
-            "type": "string",
-            "description": "The total area requiered.",
-            "example": "1000"
-          },
-          "Power": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "PotableWater": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "SanitaryWasteWater": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "MunicipalWaste": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "HazardousWaste": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "IndustrialNonHazWaste": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "CapitalInvestment": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Fax": {
-            "type": "string",
-            "description": "The invester fax number.",
-            "example": "553234433"
-          },
-          "TelephoneNo": {
-            "type": "string",
-            "description": "The main telephone number",
-            "example": "9551111111"
-          },
-          "POBox": {
-            "type": "string",
-            "description": "The post box number.",
-            "example": "1001"
-          },
-          "ZipCode": {
-            "type": "string",
-            "description": "The country ZIP code.",
-            "example": "121222"
-          },
-          "Country": {
-            "type": "string",
-            "description": "The country name.",
-            "example": "Saudi Arabia"
-          },
-          "Province": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "City": {
-            "type": "string",
-            "description": "The city name.",
-            "example": "Ryhiadh"
-          },
-          "CompanyName": {
-            "type": "string",
-            "description": "The company name",
-            "example": "Company 1"
-          },
-          "ProductServices": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Description": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "MarketDestination": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "mobileNumber": {
-            "type": "string",
-            "description": "The mobile number without country code without '+'",
-            "example": 51111111
-          },
-          "Unit": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "MaterialLaf": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "RawMaterial": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Source": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          }
-        }
-      },
-      "CreateRequestResponseBody": {
-        "type": "object",
-        "properties": {
-          "requestId": {
-            "type": "string",
-            "description": "The created request ID.",
-            "example": "100012"
-          },
-          "requestNumber": {
-            "type": "string",
-            "description": "The created request number.",
-            "example": "100013"
-          },
-          "Message": {
-            "type": "string",
-            "description": "A backend message.",
-            "example": "Created sucessfully."
-          }
-        }
-      },
-      "CreateQuestEnvCriteriaRequestRequestBody": {
-        "type": "object",
-        "properties": {
-          "RequestNumber": {
-            "type": "string",
-            "description": "The request number.",
-            "example": "10122"
-          },
-          "RequestId": {
-            "type": "string",
-            "description": "The request ID.",
-            "example": "19222"
-          },
-          "Q1": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q2": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q3": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q4": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q5": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q6": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q7": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q8": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q9": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q10": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q11": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q12": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "DetailQ12": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q13": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q14": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q15": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Used": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Recycled": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "OtherQ3": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "OtherQ4": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "OtherQ5": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "DetailQ16": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "DetailQ17": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "questionnaireEnvCriteriaDetailModel": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "TypeOfMaterial": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "QuestionNumber": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Quantity": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "NumberOfPointSource": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Location": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Country": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "City": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "NumberOfPlants": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "TruckingOfMaterial": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "NumberSolidQuantity": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "IdLiquidQuantity": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "OilOfMaterial": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "CrudeOil": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "HeavyFuelOil": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "wasteWater": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          }
-        }
-      },
-      "CreateQuestEnvCriteriaRequestResponseBody": {
-        "type": "object",
-        "properties": {
-          "requestId": {
-            "type": "string",
-            "description": "The request ID.",
-            "example": "100012"
-          },
-          "Success": {
-            "type": "boolean",
-            "description": "indecates the request status, True or False.",
-            "example": true
-          },
-          "Message": {
-            "type": "string",
-            "description": "A backend message.",
-            "example": "Created sucessfully."
-          }
-        }
-      },
-      "CreateQuestEnvWasteRequestRequestBody": {
-        "type": "object",
-        "properties": {
-          "RequestNumber": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "RequestId": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q1": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q2": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q3": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q4": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q5": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q6": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "WasteOil": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Caustic": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Catalyst": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Gypsum": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "RedMud": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Phosphogypsum": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "SteelDust": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "OtherWaste": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "OtherQ7": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q8": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q9": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q10": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q11": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "DetailQ11": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q12": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "DetailQ12": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "DetailQ13": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q14": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "DetailQ15": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "DetailQ16": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "DetailQ17": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q18": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Q18_B": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "DetailQ18": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "CommencementDate": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "CompletionDate": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Landfill": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Incineration": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          },
-          "Physical": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          }
-        }
-      },
-      "CreateQuestEnvWasteRequestResponseBody": {
-        "type": "object",
-        "properties": {
-          "requestId": {
-            "type": "string",
-            "description": "The request ID.",
-            "example": "100012"
-          },
-          "Success": {
-            "type": "boolean",
-            "description": "indecates the request status, True or False.",
-            "example": true
-          },
-          "Message": {
-            "type": "string",
-            "description": "A backend message.",
-            "example": "Created sucessfully."
-          }
-        }
-      },
-      "SubmitRequestRequestBody": {
-        "type": "object",
-        "properties": {
-          "RequestId": {
-            "type": "string",
-            "description": "TBD",
-            "example": "TBD"
-          }
-        }
-      },
-      "SubmitRequestResponseBody": {
-        "type": "object",
-        "properties": {
-          "Success": {
-            "type": "boolean",
-            "description": "indecates the request status, True or False.",
-            "example": true
-          },
-          "Message": {
-            "type": "string",
-            "description": "A backend message.",
-            "example": "Created sucessfully."
-          }
-        }
-      }
-    }
-  }
-}
+openapi: 2.0.0
+
+info:
+  title: RCJY - SIDF APIs
+  #TODO: add a valid service description.
+  description: |
+    TBD This is a description placeholder.
+  version: 0.5.0
+
+servers:
+  - url: https://yesser.rcjubail.gov.sa/lafapi/api/laf
+    description: The SIDF API base/production URL
+  # Apigee link will be /v1/sidf
+
+paths:
+  /createrequest:
+    post:
+      summary: TBD
+      description: 'TBD'
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateRequestRequestBody'
+      responses:
+        '200':
+          description: A successfull request with the required response data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateRequestResponseBody'
+        '401':
+          description: Unauthorized, mainly this issue happens when the authorization token is invalid.
+        '400':
+          description: Bad request, mainly this issue happens when the data sent to the API is not valid.
+  /CreateQuestEnvCriteriaRequest:
+    post:
+      summary: TBD
+      description: 'TBD'
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateQuestEnvCriteriaRequestRequestBody'
+      responses:
+        '200':
+          description: A successfull request with the required response data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateQuestEnvCriteriaRequestResponseBody'
+        '401':
+          description: Unauthorized, mainly this issue happens when the authorization token is invalid.
+        '400':
+          description: Bad request, mainly this issue happens when the data sent to the API is not valid.
+  /CreateQuestEnvWasteRequest:
+    post:
+      summary: TBD
+      description: 'TBD'
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateQuestEnvWasteRequestRequestBody'
+      responses:
+        '200':
+          description: A successfull request with the required response data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateQuestEnvWasteRequestResponseBody'
+        '401':
+          description: Unauthorized, mainly this issue happens when the authorization token is invalid.
+        '400':
+          description: Bad request, mainly this issue happens when the data sent to the API is not valid.
+  /SubmitRequest:
+    post:
+      summary: TBD
+      description: 'TBD'
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SubmitRequestRequestBody'
+      responses:
+        '200':
+          description: A successfull request with the required response data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SubmitRequestResponseBody'
+        '401':
+          description: Unauthorized, mainly this issue happens when the authorization token is invalid.
+        '400':
+          description: Bad request, mainly this issue happens when the data sent to the API is not valid.
+components:
+  securitySchemes:
+    bearerAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+
+  # API request and response bodies" schemas.
+  schemas:
+    CreateRequestRequestBody:
+      type: object
+      properties:
+        Email:
+          type: string
+          description: 'The invester email address.' # Valid email address is required.
+          example: 'xyz@rcjy.gov.sa'
+        InvesterName:
+          type: string
+          description: 'The investor full name.'
+          example: 'Ahmed Mohamed Ibrahim'
+        Position:
+          type: string
+          description: 'The invester position'
+          example: 'IT Manager'
+        InvesterTelephone:
+          type: string
+          description: 'The invester telephone number.'
+          example: '0512312312' #TODO: validate the mobile number with RCJY
+        Ext:
+          type: string
+          description: 'The invester telephone extention number'
+          example: '101'
+        Mobile:
+          type: string
+          description: "The invester mobile number without country code, without '+'."
+          example: 51111111 # Valid mobile number is required.
+        InvesterEmail:
+          type: string
+          description: 'The invester email address.'
+          example: 'xyz@abc.com'
+        Location:
+          type: string
+          description: 'The invester location'
+          example: 'Rihyadh'
+        empNumber:
+          type: string
+          description: 'The employee number.'
+          example: '1001'
+        ProjectClassification:
+          type: string
+          description: 'The project classification.'
+          example: 'Classification'
+        TotalAreaRequired:
+          type: string
+          description: 'The total area requiered.'
+          example: '1000'
+        Power:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        PotableWater:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        SanitaryWasteWater:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        MunicipalWaste:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        HazardousWaste:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        IndustrialNonHazWaste:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        CapitalInvestment:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Fax:
+          type: string
+          description: 'The invester fax number.'
+          example: '553234433'
+        TelephoneNo:
+          type: string
+          description: 'The main telephone number'
+          example: '9551111111'
+        POBox:
+          type: string
+          description: 'The post box number.'
+          example: '1001'
+        ZipCode:
+          type: string
+          description: 'The country ZIP code.'
+          example: '121222'
+        Country:
+          type: string
+          description: 'The country name.'
+          example: 'Saudi Arabia'
+        Province:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        City:
+          type: string
+          description: 'The city name.'
+          example: 'Ryhiadh'
+        CompanyName:
+          type: string
+          description: 'The company name'
+          example: 'Company 1'
+        ProductServices:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Description:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        MarketDestination:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        mobileNumber:
+          type: string
+          description: "The mobile number without country code without '+'"
+          example: 51111111 # Valid mobile number is required.
+        Unit:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        MaterialLaf:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        RawMaterial:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Source:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+    CreateRequestResponseBody:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: 'The created request ID.'
+          example: '100012'
+        requestNumber:
+          type: string
+          description: 'The created request number.'
+          example: '100013'
+        Message:
+          type: string
+          description: 'A backend message.'
+          example: 'Created sucessfully.'
+    CreateQuestEnvCriteriaRequestRequestBody:
+      type: object
+      properties:
+        RequestNumber:
+          type: string
+          description: 'The request number.'
+          example: '10122'
+        RequestId:
+          type: string
+          description: 'The request ID.'
+          example: '19222'
+        Q1:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q2:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q3:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q4:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q5:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q6:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q7:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q8:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q9:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q10:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q11:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q12:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        DetailQ12:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q13:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q14:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q15:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Used:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Recycled:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        OtherQ3:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        OtherQ4:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        OtherQ5:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        DetailQ16:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        DetailQ17:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        questionnaireEnvCriteriaDetailModel:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        TypeOfMaterial:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        QuestionNumber:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Quantity:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        NumberOfPointSource:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Location:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Country:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        City:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        NumberOfPlants:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        TruckingOfMaterial:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        NumberSolidQuantity:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        IdLiquidQuantity:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        OilOfMaterial:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        CrudeOil:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        HeavyFuelOil:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        wasteWater:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+    CreateQuestEnvCriteriaRequestResponseBody:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: 'The request ID.'
+          example: '100012'
+        Success:
+          type: boolean
+          description: 'indecates the request status, True or False.'
+          example: true
+        Message:
+          type: string
+          description: 'A backend message.'
+          example: 'Created sucessfully.'
+    CreateQuestEnvWasteRequestRequestBody:
+      type: object
+      properties:
+        RequestNumber:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        RequestId:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q1:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q2:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q3:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q4:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q5:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q6:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        WasteOil:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Caustic:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Catalyst:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Gypsum:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        RedMud:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Phosphogypsum:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        SteelDust:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        OtherWaste:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        OtherQ7:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q8:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q9:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q10:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q11:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        DetailQ11:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q12:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        DetailQ12:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        DetailQ13:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q14:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        DetailQ15:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        DetailQ16:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        DetailQ17:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q18:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Q18_B:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        DetailQ18:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        CommencementDate:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        CompletionDate:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Landfill:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Incineration:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+        Physical:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+    CreateQuestEnvWasteRequestResponseBody:
+      type: object
+      properties:
+        requestId:
+          type: string
+          description: 'The request ID.'
+          example: '100012'
+        Success:
+          type: boolean
+          description: 'indecates the request status, True or False.'
+          example: true
+        Message:
+          type: string
+          description: 'A backend message.'
+          example: 'Created sucessfully.'
+    SubmitRequestRequestBody:
+      type: object
+      properties:
+        RequestId:
+          type: string
+          description: 'TBD'
+          example: 'TBD'
+    SubmitRequestResponseBody:
+      type: object
+      properties:
+        Success:
+          type: boolean
+          description: 'indecates the request status, True or False.'
+          example: true
+        Message:
+          type: string
+          description: 'A backend message.'
+          example: 'Created sucessfully.'
