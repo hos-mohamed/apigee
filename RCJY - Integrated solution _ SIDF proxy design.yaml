@@ -2,12 +2,12 @@ swagger: "2.0"
 
 info:
   version: 1.0.0
-  title: Passle API
-  description: An API for Passle
+  title: Test OAS API
+  description: An API for Testing OAS 
   
 schemes:
   - https
-host: ec2-54-191-103-8.us-west-2.compute.amazonaws.com
+host: www.abc.com
 
 paths: 
   /collections:
@@ -77,3 +77,5 @@ paths:
                   type: string
         404:
           description: The collection does not exist
+  
+  
